@@ -1,0 +1,60 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #0b0f17;
+  color: #e6f1ff;
+}
+
+/* Starfield background layers */
+.stars, .stars:after, .stars:before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background-repeat: repeat;
+  pointer-events: none;
+}
+
+.stars {
+  background-image:
+    radial-gradient(2px 2px at 20px 30px, #fff, rgba(255,255,255,0)),
+    radial-gradient(1px 1px at 40px 70px, #cbe2ff, rgba(203,226,255,0)),
+    radial-gradient(1px 1px at 130px 90px, #a5c8ff, rgba(165,200,255,0));
+  background-size: 200px 200px, 250px 250px, 300px 300px;
+  animation: drift 120s linear infinite;
+  opacity: 0.35;
+}
+
+.stars:before {
+  background-image:
+    radial-gradient(1px 1px at 50px 80px, #e6f1ff, rgba(230,241,255,0)),
+    radial-gradient(2px 2px at 90px 40px, #9bdcff, rgba(155,220,255,0));
+  background-size: 350px 350px, 400px 400px;
+  animation: drift 200s linear infinite reverse;
+  opacity: 0.25;
+}
+
+.stars:after {
+  background-image:
+    radial-gradient(1px 1px at 10px 10px, #ffffff, rgba(255,255,255,0)),
+    radial-gradient(2px 2px at 160px 120px, #b5d0ff, rgba(181,208,255,0));
+  background-size: 500px 500px, 600px 600px;
+  animation: drift 300s linear infinite;
+  opacity: 0.15;
+}
+
+@keyframes drift {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-25%, -25%, 0); }
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
